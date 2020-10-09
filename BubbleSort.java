@@ -1,40 +1,29 @@
-import java.util.*;
-class BubbleSort{
-     public static void main(String []args){
-        Scanner scan = new Scanner(System.in);
-        System.out.println("How many element you want to enter : ");
-        int limit = scan.nextInt();
-        
-        int[] array = new int[limit];
+import java.util.Arrays;
+public class BubbleSort{
+    
+    public static void bubblesort(int[] arr, int n){
+        int temp;
+        boolean flag = true;
             
-                for(int i=0;i<array.length;i++){
-                    System.out.println("Enter Number : ");
-                    array[i]=scan.nextInt();
-                }
-        
-                for(int i=0;i<array.length;i++){
-                    System.out.print(array[i]+" ");
-                }
-                boolean flag=true;
-                int temp;
-                while(flag){
-                    flag=false;
+            while(flag){
+                flag = false;
                     
-                    for(int i=0;i<array.length-1;i++){
-                    
-                        if(array[i] < array[i+1]){
-                            temp=array[i];
-                            array[i]=array[i+1];
-                            array[i+1]=temp;
-                            flag=true;
-                        }
+                    for(int i=0; i<(n-1); i++){
                         
+                        if(arr[i] > arr[i+1]){
+                            temp = arr[i];
+                            arr[i] = arr[i+1];
+                            arr[i+1] = temp;
+                            flag = true;
+                        }
                     }
-                    
-                }
-                System.out.println("\nSorted Array : ");
-                for(int i=0;i<array.length;i++){
-                    System.out.print(array[i]+" ");
-                }
-     }
+            }
+            System.out.println("Bubble Sort : "+Arrays.toString(arr));
+    }
+    
+    public static void main(String []args){
+        int[] arr = {21,65,79,42,31,98,67,55,10,86,2};
+        int n = arr.length;
+        bubblesort(arr, n);
+    }
 }
